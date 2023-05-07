@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Highcharts Example</title>
+  <!-- Include the latest Highcharts library -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <!-- Include the Highcharts exporting module for additional features -->
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+</head>
+<body>
+  <!-- Create a container for the chart -->
+  <div id="chartContainer" style="width: 600px; height: 400px;"></div>
+
+  <!-- Create the chart script -->
+  <script>
+    // Data for the chart
+    var data = {
+      categories: ['Apples', 'Bananas', 'Oranges'],
+      series: [{
+        name: 'Fruit Consumption',
+        data: [10, 8, 6]
+      }]
+    };
+
+    // Create the chart
+    Highcharts.chart('chartContainer', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Fruit Consumption'
+      },
+      xAxis: {
+        categories: data.categories
+      },
+      yAxis: {
+        title: {
+          text: 'Amount'
+        }
+      },
+      series: data.series,
+      legend: {
+        enabled: false // Hide the legend
+      },
+      plotOptions: {
+        line: {
+          marker: {
+            enabled: true, // Show data point markers
+            symbol: 'circle' // Set the marker shape
+          }
+        }
+      },
+      credits: {
+        enabled: false // Hide the credits
+      },
+      exporting: {
+        enabled: true // Enable exporting/download options
+      }
+    });
+  </script>
+</body>
+</html>
